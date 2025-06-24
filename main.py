@@ -2,12 +2,16 @@ import re
 import requests
 from bs4 import BeautifulSoup
 from fastapi import FastAPI, Request, Form
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
 templates = Jinja2Templates(directory="templates")
 
 app = FastAPI()
+
+@app.get("/", include_in_schema=False)
+def root():
+    return RedirectResponse(url="/consulta")
 
 @app.get("/consulta", response_class=HTMLResponse)
 def form_cnpj(request: Request):
