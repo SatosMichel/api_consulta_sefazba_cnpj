@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta CNPJ SEFAZ BA</title>
+    <style>
+        body {
+            background: {{ cor_fundo | default('#e8f5e9') }};
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+            text-align: center;
+        }
+        .razao-social {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        .mensagem {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 10px;
+            color: {{ cor_texto | default('#2ecc40') }};
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 220px;
+        }
+        button, .social-btn {
+            background: #2ecc40;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 10px 5px 0 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        button:hover, .social-btn:hover {
+            background: #27ae60;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.85em;
+            color: #888;
+            width: 100%;
+        }
+        .footer-buttons {
+            margin-top: 10px;
+        }
+        .footer .social-btn {
+            font-size: 1em;
+            padding: 7px 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Consulta de CNPJ na SEFAZ BA</h2>
+        <form method="post">
+            <input type="text" name="cnpj" placeholder="Digite o CNPJ" required>
+            <button type="submit">Consultar</button>
+        </form>
+        {% if razao_social %}
+        <div class="razao-social">{{ razao_social }}</div>
+        {% endif %}
+        {% if mensagem %}
+        <div class="mensagem">{{ mensagem }}</div>
+        {% endif %}
+        <div class="footer">
+            Desenvolvido por Michel Rebouças.
+            <div class="footer-buttons">
+                <a class="social-btn" style="background:#25d366;" href="https://web.whatsapp.com/send/?phone=5571987364775&text&type=phone_number&app_absent=0" target="_blank">WhatsApp</a>
+                <a class="social-btn" style="background:#833AB4;" href="https://www.instagram.com/satosmichel_oficial/" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
